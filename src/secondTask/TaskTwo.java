@@ -15,6 +15,17 @@ public class TaskTwo {
     }
 
     /*
+    * every item +=2
+    * */
+    public int bunnyEars(int bunnies){
+        if(bunnies == 0)
+            return 0;
+        if (bunnies == 1)
+            return 2;
+        return 2 + bunnyEars(bunnies - 1);
+    }
+
+    /*
     * even -> +=3
     * odd -> +=2
     * return total of a row
@@ -118,4 +129,5 @@ public class TaskTwo {
             return 1 + strCount(str.substring(sub.length()), sub);
         return strCount(str.substring(1), sub);
     }
+
 }
