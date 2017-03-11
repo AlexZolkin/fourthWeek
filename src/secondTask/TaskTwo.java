@@ -62,4 +62,16 @@ public class TaskTwo {
         return nums[index] == 11 ? 1 + array11(nums, index + 1) : array11(nums, index + 1);
     }
 
+    /*
+    * Separates equal chars in str with "*"
+    * */
+    public String pairStar(String str){
+        if(str.length() == 1 || str.length() == 0)
+            return str;
+        String res = str.charAt(0) + "";
+        if(str.charAt(0) == str.charAt(1))
+            res = str.charAt(0) + "*";
+        return res + pairStar(str.substring(1));
+    }
+
 }

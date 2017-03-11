@@ -8,7 +8,7 @@ import secondTask.TaskTwo;
 public class TestClass {
     TaskTwo taskTwo = new TaskTwo();
     @Test
-    public void testChangePi(){
-        Assert.assertEquals("x3.14x", taskTwo.changePi("xpix"));
+    public void testPairStar(){
+        Assert.assertEquals("hel*lo", taskTwo.pairStar("hello"));
     }
 }
