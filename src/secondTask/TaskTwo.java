@@ -43,5 +43,14 @@ public class TaskTwo {
                 countX(str.substring(0,str.length() - 1));
     }
 
+    /*
+    * Changes "pi" to "3.14" in string given
+    * */
+    public String changePi(String str){
+        String res = str;
+        if(str.indexOf("pi") != -1)
+            res = str.substring(0,str.indexOf("pi")) + "3.14" + str.substring(str.indexOf("pi") + 2, str.length());
+        return str.equals(res) ? res : changePi(res);
+    }
 
 }
