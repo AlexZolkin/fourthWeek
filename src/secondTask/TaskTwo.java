@@ -131,6 +131,16 @@ public class TaskTwo {
     }
 
     /*
+    * check
+    * if an array given contains 6
+    * */
+    public boolean array6(int[] nums, int index){
+        if(index == nums.length)
+            return false;
+        return nums[index] == 6 ? true : array6(nums, ++index);
+    }
+
+    /*
     * Counts number of "11" in array
     * */
     public int array11(int[] nums, int index){
