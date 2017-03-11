@@ -74,4 +74,48 @@ public class TaskTwo {
         return res + pairStar(str.substring(1));
     }
 
+    /*
+    * Count number of "abc" and "aba"
+    * substrings in string given
+    * */
+    public int countAbc(String str){
+        if(str.length() < 3)
+            return 0;
+        if(str.substring(0, 3).equals("aba"))
+            return 1 + countAbc(str.substring(2));
+        if(str.substring(0, 3).equals("abc"))
+            return 1 + countAbc(str.substring(3));
+        return countAbc(str.substring(1));
+    }
+
+    /*
+    * Count "hi"
+    * but not "xhi"
+    * in string given
+    * */
+    public int countHi2(String str){
+        if(str.length() == 2 && str.equals("hi"))
+            return 1;
+        if(str.length() <= 2)
+            return 0;
+        if(str.substring(0, 3).equals("xhi"))
+            return countHi2(str.substring(3));
+        if(str.substring(0, 2).equals("hi"))
+            return 1 + countHi2(str.substring(2));
+        if(str.substring(1, 3).equals("hi"))
+            return 1 + countHi2(str.substring(3));
+        return countHi2(str.substring(1));
+    }
+
+    /*
+    * Count number of sub strings
+    * in string given
+    * */
+    public int strCount(String str, String sub){
+        if(str.length() < sub.length())
+            return 0;
+        if (str.substring(0, sub.length()).equals(sub))
+            return 1 + strCount(str.substring(sub.length()), sub);
+        return strCount(str.substring(1), sub);
+    }
 }
