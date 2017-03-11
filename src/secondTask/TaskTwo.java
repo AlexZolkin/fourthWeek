@@ -90,6 +90,21 @@ public class TaskTwo {
     }
 
     /*
+    * Removes "x"
+    * from the string given
+    * */
+    public String noX(String str){
+        if(str.length() == 0)
+            return "";
+        if (str.length() == 1 && str.equals("x"))
+            return "";
+        else if(str.length() == 1)
+            return str;
+        return str.charAt(0) == 'x' ? noX(str.substring(1)) :
+                str.charAt(0) + noX(str.substring(1));
+    }
+
+    /*
     * Counts number of "11" in array
     * */
     public int array11(int[] nums, int index){
