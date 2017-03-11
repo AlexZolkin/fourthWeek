@@ -48,6 +48,14 @@ public class TaskTwo {
     }
 
     /*
+    * sum all the digits
+    * in the number given
+    * */
+    public int sumDigits(int n){
+        return n < 10 ? n : n % 10 + sumDigits(n / 10);
+    }
+
+    /*
     * even -> +=3
     * odd -> +=2
     * return total of a row
