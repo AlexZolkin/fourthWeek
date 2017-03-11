@@ -23,4 +23,9 @@ public class TaskTwo {
         if(bunnies == 0) return 0;
         return bunnies % 2 == 0 ? 3 + bunnyEars2(bunnies - 1) : 2 + bunnyEars2(bunnies - 1);
     }
+
+    public int count7(int n){
+        if(n == 0) return 0;
+        return n % 10 == 7 ? 1 + count7(n / 10) : count7(n / 10);
+    }
 }
