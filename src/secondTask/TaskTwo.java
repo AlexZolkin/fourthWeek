@@ -114,6 +114,17 @@ public class TaskTwo {
     }
 
     /*
+    * Found in the array given such pairs
+    * x -> x*10
+    * returns boolean
+    * */
+    public boolean array220(int[] nums, int index){
+        if(index == nums.length - 1 || nums.length == 0)
+            return false;
+        return nums[index] * 10 == nums[index + 1] ? true : array220(nums, index + 1);
+    }
+
+    /*
     * Separates equal chars in str with "*"
     * */
     public String pairStar(String str){
