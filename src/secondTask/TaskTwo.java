@@ -212,6 +212,17 @@ public class TaskTwo {
     }
 
     /*
+    * Changing all the "x"
+    * to "y"
+    * */
+    public String changeXY(String str){
+        if(str.length() == 0)
+            return str;
+        return str.charAt(0) == 'x' ? "y" + changeXY(str.substring(1)) :
+                str.charAt(0) + changeXY(str.substring(1));
+    }
+
+    /*
     * Count "hi"
     * but not "xhi"
     * in string given
