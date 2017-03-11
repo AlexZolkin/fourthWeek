@@ -231,4 +231,19 @@ public class TaskTwo {
         return strCount(str.substring(1), sub);
     }
 
+    /*
+    * check
+    * if at least n copies of substring
+    * is present in string given
+    * */
+    public boolean strCopies(String str, String sub, int n){
+        if(str.indexOf(sub) == -1 && n > 0)
+            return false;
+        if(str.indexOf(sub) != -1){
+            return strCopies(str.substring(str.indexOf(sub) + 1), sub, n - 1);
+        }else
+            return true;
+
+    }
+
 }
