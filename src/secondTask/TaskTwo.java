@@ -24,8 +24,24 @@ public class TaskTwo {
         return bunnies % 2 == 0 ? 3 + bunnyEars2(bunnies - 1) : 2 + bunnyEars2(bunnies - 1);
     }
 
+    /*
+    * Count how many digits "7"
+    * are there in number given
+    * */
     public int count7(int n){
         if(n == 0) return 0;
         return n % 10 == 7 ? 1 + count7(n / 10) : count7(n / 10);
     }
+
+    /*
+    * Count number of occupancy's of "x"
+    * in string given
+    * */
+    public int countX(String str) {
+        if (str.length() == 0) return 0;
+        return str.toLowerCase().charAt(str.length() - 1) == 'x' ? 1 + countX(str.substring(0,str.length() - 1)) :
+                countX(str.substring(0,str.length() - 1));
+    }
+
+
 }
