@@ -161,6 +161,19 @@ public class TaskTwo {
     }
 
     /*
+    * Putting "*"
+    * between all the chars
+    * in string given
+    * */
+    public String allStar(String str){
+        if(str.length() == 0)
+            return str;
+        if(str.length() > 1)
+            return str.charAt(0) + "*" + allStar(str.substring(1));
+        return str;
+    }
+
+    /*
     * Separates equal chars in str with "*"
     * */
     public String pairStar(String str){
