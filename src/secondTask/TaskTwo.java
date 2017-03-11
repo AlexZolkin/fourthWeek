@@ -162,6 +162,17 @@ public class TaskTwo {
     }
 
     /*
+    * Count number of "11"
+    * in string given
+    * no overlap
+    * */
+    public int count11(String str){
+        if(str.length() < 2)
+            return 0;
+        return str.substring(0, 2).equals("11") ? 1 + count11(str.substring(2)) : count11(str.substring(1));
+    }
+
+    /*
     * count number of "hi"
     * */
     public int countHi(String str){
