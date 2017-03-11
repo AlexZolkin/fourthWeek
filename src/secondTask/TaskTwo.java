@@ -125,6 +125,19 @@ public class TaskTwo {
     }
 
     /*
+    * count number of "hi"
+    * */
+    public int countHi(String str){
+        if(str.length() == 2 && str.equals("hi"))
+            return 1;
+        if(str.length() <= 2)
+            return 0;
+        if(str.substring(0, 2).equals("hi"))
+            return 1 + countHi2(str.substring(2));
+        return countHi2(str.substring(1));
+    }
+
+    /*
     * Count "hi"
     * but not "xhi"
     * in string given
