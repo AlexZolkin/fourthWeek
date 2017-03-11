@@ -89,6 +89,13 @@ public class TaskTwo {
     }
 
     /*
+    * power base to n degree
+    * */
+    public int powerN(int base, int n){
+        return n == 0 ? 1 : base * powerN(base, n - 1);
+    }
+
+    /*
     * Count number of occupancy's of "x"
     * in string given
     * */
