@@ -26,6 +26,17 @@ public class TaskTwo {
     }
 
     /*
+    * every time += parameter
+    * */
+    public int triangle(int rows){
+        if(rows == 0)
+            return 0;
+        if (rows == 1)
+            return 1;
+        return rows + triangle(rows - 1);
+    }
+
+    /*
     * even -> +=3
     * odd -> +=2
     * return total of a row
