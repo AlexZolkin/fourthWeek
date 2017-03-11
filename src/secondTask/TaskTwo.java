@@ -307,6 +307,18 @@ public class TaskTwo {
     }
 
     /*
+    * checks for complete pairs of brackets
+    * */
+    public boolean nestParen(String str){
+        if (str.length() == 0)
+            return true;
+        if (str.length() == 1)
+            return false;
+        return str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')' ?
+                nestParen(str.substring(1, str.length() - 1)) : false;
+    }
+
+    /*
     * Count number of sub strings
     * in string given
     * */
