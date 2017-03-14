@@ -9,6 +9,11 @@ import java.util.Comparator;
  */
 public class SortClass implements IAlgorithm {
 
+    /*
+    * Function for private usage
+    * checks type of object given
+    * used for correct default comparator work
+    * */
     private String checkType(Object obj){
         if(obj instanceof Integer)
             return "Integer";
@@ -19,25 +24,11 @@ public class SortClass implements IAlgorithm {
         return "Custom";
     }
 
-    @Override
-    public Object[] quickSort(Collection<Object> collection) {
-        Object[] array = collection.toArray();
-        return quickSort(array, null);
-    }
-
-    @Override
-    public Object[] quickSort(Object[] array) {
-        return quickSort(array, null);
-    }
-
-
-
-    @Override
-    public Object[] quickSort(Collection<Object> collection, Comparator<Object> comparator) {
-        Object[] array = collection.toArray();
-        return quickSort(array, comparator);
-    }
-
+    /*
+    * quickSort realisation
+    * non recursive!
+    * takes an array and comparator(can be used with default comparator too)
+    * */
     @Override
     public Object[] quickSort(Object[] array, Comparator<Object> comparator) {
         int i, j;
@@ -94,27 +85,49 @@ public class SortClass implements IAlgorithm {
         return array;
     }
 
+    /*
+    * quickSort override
+    * takes a collection and uses default comparator
+    * returns sorted array;
+    * */
     @Override
-    public Object[] mergeSort(Collection<Object> collection, Comparator<Object> comparator) {
-        return mergeSort(collection.toArray(), comparator);
+    public Object[] quickSort(Collection<Object> collection) {
+        Object[] array = collection.toArray();
+        return quickSort(array, null);
     }
 
+    /*
+    * quickSort override
+    * takes an array and uses default comparator
+    * returns sorted array;
+    * */
     @Override
-    public Object[] mergeSort(Collection<Object> collection) {
-        return mergeSort(collection.toArray(), null);
+    public Object[] quickSort(Object[] array) {
+        return quickSort(array, null);
     }
 
+    /*
+    * quickSort override
+    * takes a collection and a custom comparator
+    * returns sorted array;
+    * */
     @Override
-    public Object[] mergeSort(Object[] array) {
-        return mergeSort(array, null);
+    public Object[] quickSort(Collection<Object> collection, Comparator<Object> comparator) {
+        Object[] array = collection.toArray();
+        return quickSort(array, comparator);
     }
 
+    /*
+    * mergeSort realisation
+    * non recursive!
+    * takes an array and comparator(can be used with default comparator too)
+    * */
     @Override
     public Object[] mergeSort(Object[] array, Comparator<Object> comparator) {
         int len = array.length;
-        int n = 1; // кратность сравнений (сравнивать по 1-му елем., 2-м ...)
-        int shift; // сдвиг в перебираемом массиве
-        int two_size; // количество елементов для 2-го массива
+        int n = 1;
+        int shift;
+        int two_size;
         Object[] arr2;
         while (n < len) {
             shift = 0;
@@ -133,26 +146,11 @@ public class SortClass implements IAlgorithm {
         return array;
     }
 
-    private boolean comparator(Object a, Object b){
-        if(checkType(a).equals("String"))
-            return stringsComparator(a, b);
-        return numbersComparator(a, b);
-    }
-
-    private boolean numbersComparator(Object a, Object b){
-        switch (checkType(a)){
-            case "Integer":
-                return (Integer)a < (Integer) b;
-            case "Double":
-                return (Double)a < (Double) b;
-        }
-        return false;
-    }
-    private boolean stringsComparator(Object a, Object b){
-        return (a.toString().compareToIgnoreCase(b.toString()) < 0);
-    }
-
-
+    /*
+    * function for private usage
+    * sorts sub arrays
+    * used in mergeSort in cycle
+    * */
     private Object[] merge(Object[] arr_1, Object[] arr_2, Comparator<Object> comparator) {
         int len_1 = arr_1.length, len_2 = arr_2.length;
         int a = 0, b = 0, len = len_1 + len_2; // a, b - счетчики в массивах
@@ -175,5 +173,73 @@ public class SortClass implements IAlgorithm {
         }
         return result;
     }
+
+    /*
+    * margeSort override
+    * takes a collection and a custom comparator
+    * returns sorted array
+    * */
+    @Override
+    public Object[] mergeSort(Collection<Object> collection, Comparator<Object> comparator) {
+        return mergeSort(collection.toArray(), comparator);
+    }
+
+    /*
+    * margeSort override
+    * takes a collection and uses default comparator
+    * returns sorted array
+    * */
+    @Override
+    public Object[] mergeSort(Collection<Object> collection) {
+        return mergeSort(collection.toArray(), null);
+    }
+
+    /*
+    * margeSort override
+    * takes an array and uses default comparator
+    * returns sorted array
+    * */
+    @Override
+    public Object[] mergeSort(Object[] array) {
+        return mergeSort(array, null);
+    }
+
+    /*
+    * function for private usage
+    * compares two object with an appropriate
+    * default comparator
+    * */
+    private boolean comparator(Object a, Object b){
+        if(checkType(a).equals("String"))
+            return stringsComparator(a, b);
+        return numbersComparator(a, b);
+    }
+
+    /*
+    * function for private usage
+    * compares two numbers
+    * */
+    private boolean numbersComparator(Object a, Object b){
+        switch (checkType(a)){
+            case "Integer":
+                return (Integer)a < (Integer) b;
+            case "Double":
+                return (Double)a < (Double) b;
+        }
+        return false;
+    }
+
+    /*
+    * function for private usage
+    * compares 2 strings
+    * ignores case
+    * alphabetically
+    * */
+    private boolean stringsComparator(Object a, Object b){
+        return (a.toString().compareToIgnoreCase(b.toString()) < 0);
+    }
+
+
+
 
 }
